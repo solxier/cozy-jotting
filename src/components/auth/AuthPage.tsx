@@ -11,18 +11,34 @@ const AuthPage = () => {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center p-6 bg-gradient-to-br from-background to-accent/20">
-      <div className="w-full max-w-md">
+    <div className="min-h-screen flex items-center justify-center p-6 relative overflow-hidden">
+      {/* Video background with blur */}
+      <div className="absolute inset-0 z-0 overflow-hidden">
+        <video 
+          src="https://cdn.pixabay.com/video/2024/09/10/230697_large.mp4"
+          autoPlay
+          loop
+          muted
+          playsInline
+          className="object-cover w-full h-full blur-md scale-110"
+        />
+        <div className="absolute inset-0 bg-background/50 backdrop-blur-sm"></div>
+      </div>
+      
+      {/* Content */}
+      <div className="w-full max-w-md z-10 relative">
         <div className="text-center mb-8">
           <h1 className="text-4xl font-bold mb-2 text-primary">Notesy</h1>
           <p className="text-muted-foreground">A minimalist note-taking app</p>
         </div>
         
-        {showLogin ? (
-          <LoginForm onToggleForm={toggleForm} />
-        ) : (
-          <SignupForm onToggleForm={toggleForm} />
-        )}
+        <div className="bg-card/90 backdrop-blur-sm rounded-lg shadow-lg border border-border p-6">
+          {showLogin ? (
+            <LoginForm onToggleForm={toggleForm} />
+          ) : (
+            <SignupForm onToggleForm={toggleForm} />
+          )}
+        </div>
       </div>
     </div>
   );
