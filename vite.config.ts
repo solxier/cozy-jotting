@@ -10,7 +10,7 @@ export default defineConfig(({ mode }) => ({
     host: "::",
     port: 8080,
   },
-  base: "/cozy-jotting/", // Update this to match your repository name
+  base: "/cozy-jotting/", // Ensure this matches your repository name exactly
   plugins: [
     react(),
     mode === 'development' &&
